@@ -12,6 +12,22 @@ package com.grivera64.datastructure.linkedlist;
 
 public class LinkedList<E> implements List<E> {
 
+    /* Nodes are the basic unit for a LinkedList */
+    private class Node<T> {
+
+        private T data;                         // Element in the node
+        private Node<T> next;                   // Link to the next node
+
+        public Node(T data) {
+            this(data, null);
+        }
+
+        public Node(T data, Node<T> next) {
+            this.data = data;
+            this.next = next;
+        }
+    }
+
     @Override
     public void add(int index, E element) {
 
