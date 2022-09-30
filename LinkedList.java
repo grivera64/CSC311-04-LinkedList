@@ -28,9 +28,41 @@ public class LinkedList<E> implements List<E> {
         }
     }
 
+    private Node<E> head;
+    private int size;
+
+    public LinkedList() {
+        this.head = new Node<E>(null);      // Dummy node
+        this.size = 0;
+    }
+
     @Override
     public void add(int index, E element) {
 
+        /* Throw an exception if the index is negative or too big */
+        if (index < 0 || this.size < index) {
+            throw new IllegalArgumentException("Invalid Index!");
+            }
+
+        if (index == 0) {
+            this.addFirst(element);
+            return;
+        }
+
+        Node<E> node = this.getNode(index);
+        this.addAfter(node, element);
+    }
+
+    private void addFirst(E element) {
+        this.head.next = new Node<>(element, this.head.next);       // Updating the new head of the list
+        this.size++;
+    }
+
+    private Node<E> getNode(int index) {
+        return null;
+    }
+
+    private void addAfter(Node<E> node, E element) {
     }
 
     @Override
