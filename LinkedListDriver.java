@@ -26,5 +26,12 @@ public class LinkedListDriver {
         lst.remove(1);
         System.out.println(lst);
 
+        /* TODO: FIX LATER */
+        System.out.printf("The size of the list is: %d\n", lst.size());
+        System.out.printf("The last element is: %d\n", lst.get(lst.size()));
+
+        lst.set(lst.size(), 1234567);
+        System.out.println(lst);
+
     }
 }

@@ -116,17 +116,33 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return null;
+
+        /* Verify the index is valid */
+        if (index < 0 || this.size < index) {
+            throw new IllegalArgumentException("Invalid Index!");
+        }
+
+        return this.getNode(index).data;
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+
+        /* Verify the index is valid */
+        if (index < 0 || this.size < index) {
+            throw new IllegalArgumentException("Invalid Index!");
+        }
+
+        /* Return the data previously at the index and set it to element */
+        Node<E> node = this.getNode(index);
+        E tmp = node.data;
+        node.data = element;
+        return tmp;
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
