@@ -42,7 +42,7 @@ public class LinkedList<E> implements List<E> {
         /* Throw an exception if the index is negative or too big */
         if (index < 0 || this.size < index) {
             throw new IllegalArgumentException("Invalid Index!");
-            }
+        }
 
         if (index == 0) {
             this.addFirst(element);
@@ -59,10 +59,24 @@ public class LinkedList<E> implements List<E> {
     }
 
     private Node<E> getNode(int index) {
-        return null;
+
+        /* Verify the index is valid */
+        if (index < 0 || this.size < index) {
+            throw new IllegalArgumentException("Invalid Index!");
+        }
+
+        /* Find the node at a certain index */
+        Node<E> curr = this.head;
+        for (int i = 0; i < index && curr != null; i++) {
+            curr = curr.next;
+        }
+
+        return curr;
     }
 
     private void addAfter(Node<E> node, E element) {
+        node.next = new Node<>(element, node.next);     // Add element after the node provided
+        this.size++;
     }
 
     @Override
@@ -83,5 +97,23 @@ public class LinkedList<E> implements List<E> {
     @Override
     public int size() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        if (this.size < 1) {
+            return "[null]";
+        }
+
+        StringBuilder s = new StringBuilder("[");
+        Node<E> curr = this.head.next;
+        while (curr != null) {
+            s.append(curr.data);
+            s.append(" -> ");
+            curr = curr.next;
+        }
+
+        s.append("null]");
+        return s.toString();
     }
 }
