@@ -81,7 +81,37 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E remove(int index) {
-        return null;
+
+        /* Verify the index is valid */
+        if (index < 0 || this.size < index) {
+            throw new IllegalArgumentException("Invalid Index!");
+        }
+
+        if (index == 0) {
+            return this.removeFirst();
+        }
+
+        Node<E> node = this.getNode(index);
+        return this.removeAfter(node);
+    }
+
+    private E removeFirst() {
+
+        return this.removeAfter(this.head);
+    }
+
+    private E removeAfter(Node<E> node) {
+
+        /* Stop if the head is null */
+        if (this.head == null) {
+            throw new IllegalStateException("Cannot remove from an empty list!");
+        }
+
+        /* Remove the head and return the data from the head */
+        Node<E> tmp = node.next;
+        node.next = tmp.next;
+        this.size--;
+        return tmp.data;
     }
 
     @Override

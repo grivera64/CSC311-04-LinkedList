@@ -20,5 +20,11 @@ public class LinkedListDriver {
         lst.add(2, 55);
         System.out.println(lst);
 
+        lst.remove(0);
+        System.out.println(lst);
+
+        lst.remove(1);
+        System.out.println(lst);
+
     }
 }
