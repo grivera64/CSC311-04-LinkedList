@@ -71,6 +71,7 @@ public class LinkedList<E> implements List<E> {
             curr = curr.next;
         }
 
+        /* Returns the node before the index you are looking for */
         return curr;
     }
 
@@ -83,7 +84,7 @@ public class LinkedList<E> implements List<E> {
     public E remove(int index) {
 
         /* Verify the index is valid */
-        if (index < 0 || this.size < index) {
+        if (index < 0 || this.size <= index) {
             throw new IllegalArgumentException("Invalid Index!");
         }
 
@@ -118,23 +119,24 @@ public class LinkedList<E> implements List<E> {
     public E get(int index) {
 
         /* Verify the index is valid */
-        if (index < 0 || this.size < index) {
+        if (index < 0 || this.size <= index) {
             throw new IllegalArgumentException("Invalid Index!");
         }
 
-        return this.getNode(index).data;
+        /* Return the data from the node found */
+        return this.getNode(index + 1).data;
     }
 
     @Override
     public E set(int index, E element) {
 
         /* Verify the index is valid */
-        if (index < 0 || this.size < index) {
+        if (index < 0 || this.size <= index) {
             throw new IllegalArgumentException("Invalid Index!");
         }
 
         /* Return the data previously at the index and set it to element */
-        Node<E> node = this.getNode(index);
+        Node<E> node = this.getNode(index + 1);
         E tmp = node.data;
         node.data = element;
         return tmp;
