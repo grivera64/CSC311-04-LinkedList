@@ -1,4 +1,4 @@
-//package com.grivera64.datastructure.linkedlist;
+package com.grivera64.datastructure.linkedlist;
 
 /*
  * Name: Giovanni Rivera
@@ -13,7 +13,7 @@
 public class LinkedList<E> implements List<E> {
 
     /* Nodes are the basic unit for a LinkedList */
-    private class Node<T> {
+    private static class Node<T> {
 
         private T data;                         // Element in the node
         private Node<T> next;                   // Link to the next node
@@ -28,11 +28,11 @@ public class LinkedList<E> implements List<E> {
         }
     }
 
-    private Node<E> head;
+    private final Node<E> head;
     private int size;
 
     public LinkedList() {
-        this.head = new Node<E>(null);      // Dummy node
+        this.head = new Node<>(null);      // Dummy node
         this.size = 0;
     }
 
@@ -104,7 +104,7 @@ public class LinkedList<E> implements List<E> {
     private E removeAfter(Node<E> node) {
 
         /* Stop if the head is null */
-        if (this.head == null) {
+        if (this.head.next == null) {
             throw new IllegalStateException("Cannot remove from an empty list!");
         }
 

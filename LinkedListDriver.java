@@ -1,4 +1,4 @@
-//package com.grivera64.datastructure.linkedlist;
+package com.grivera64.datastructure.linkedlist;
 
 public class LinkedListDriver {
     public static void main(String[] args) {
