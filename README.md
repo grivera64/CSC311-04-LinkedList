@@ -9,7 +9,7 @@ Implementation of the Linked List Data Structure
     E set(int index, E element);        // Sets the element at the index to a new element
     int size();                         // Gets the size of the Linked List
 
-## How to run ArrayListDriver.java:
+## How to run LinkedListDriver.java:
 
 1. Clone the repository.
 ```bash
