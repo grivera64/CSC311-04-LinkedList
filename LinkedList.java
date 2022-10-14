@@ -150,10 +150,10 @@ public class LinkedList<E> implements List<E> {
     @Override
     public String toString() {
         if (this.size < 1) {
-            return "[null]";
+            return "[head -> null]"; // In the underlying structure, there is always a node for head with null value
         }
 
-        StringBuilder s = new StringBuilder("[");
+        StringBuilder s = new StringBuilder("[head -> ");
         Node<E> curr = this.head.next;
         while (curr != null) {
             s.append(curr.data);
