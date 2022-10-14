@@ -1,4 +1,4 @@
-# CSC311-LinkedList
+# CSC311-04-LinkedList
 Implementation of the Linked List Data Structure
 
 ## Available Methods (Located in List.java)
